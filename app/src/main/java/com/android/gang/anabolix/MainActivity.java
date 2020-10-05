@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mLewisButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hi, I'm Lewis!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Hey, this is probably Lewis!", Toast.LENGTH_SHORT).show();
             }
         });
     }
