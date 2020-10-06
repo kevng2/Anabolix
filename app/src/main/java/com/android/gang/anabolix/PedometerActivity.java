@@ -26,17 +26,18 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private float mTotalSteps = 0f;
     private float mPreviousTotalSteps = 0f;
     private TextView mStepCount;
-
+    private TextView mStepCountProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pedometer);
-        loadData();
         mStepCount = findViewById(R.id.step_count_text);
-        resetSteps();
+        mStepCountProgress = findViewById(R.id.step_count_out_of);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mCircularProgressBar = findViewById(R.id.progress_circular);
+        loadData();
+        resetSteps();
     }
 
     @Override
@@ -57,7 +58,8 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         if (mIsRunning) {
             mTotalSteps = event.values[0];
             float currentSteps = (int) mTotalSteps - (int) mPreviousTotalSteps;
-            mStepCount.setText(String.valueOf(currentSteps));
+            mStepCount.setText(String.valueOf((int) currentSteps));
+            mStepCountProgress.setText(getString(R.string.step_count_out_of_num, (int) currentSteps));
             mCircularProgressBar.setProgressWithAnimation(currentSteps);
         }
     }
@@ -75,6 +77,7 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
             public boolean onLongClick(View v) {
                 mPreviousTotalSteps = mTotalSteps;
                 mStepCount.setText("0");
+                mStepCountProgress.setText(getString(R.string.step_count_out_of_num, 0));
                 saveData();
                 return true;
             }
