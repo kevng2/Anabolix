@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mKevinButton;
     private Button mSamButton;
     private Button mLewisButton;
+    private Button mCarterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Hey, this is probably Lewis!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mCarterButton = findViewById(R.id.carter_button);
+        mCarterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "toooooast", Toast.LENGTH_SHORT).show();
             }
         });
     }
