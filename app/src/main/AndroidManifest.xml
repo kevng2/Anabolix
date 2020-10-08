@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PedometerActivity"></activity>
+        <activity android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".PedometerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

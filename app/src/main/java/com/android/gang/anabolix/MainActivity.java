@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mLewisButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hey, this is probably Lewis!", Toast.LENGTH_SHORT).show();
+                sendLogin(v);
             }
         });
 
@@ -95,4 +95,9 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
+    private void sendLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 }
