@@ -11,4 +11,8 @@
     <string name="pedometer">pedometer</string>
     <string name="step_count_out_of_num">%1$d / 10000</string>
     <string name="_0">0</string>
+
+    <!-- Login related strings -->
+    <string name="facebook_application_id" translatable="false">367527987927813</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb367527987927813</string>
 </resources>
