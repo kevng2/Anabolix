@@ -14,12 +14,9 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class TimerFragment extends Fragment {
-
-
     public TimerFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,5 +24,4 @@ public class TimerFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_timer, container, false);
     }
-
 }

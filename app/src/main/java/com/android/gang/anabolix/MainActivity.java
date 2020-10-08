@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setItemIconTintList(ColorStateList.valueOf(Color.RED));
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
 
-
-
-
         mKevinButton = findViewById(R.id.kevin_button);
         mKevinButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,19 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "toooooast", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
-
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener navMethod = new
             BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                     Fragment fragment = null;
 
                     switch (item.getItemId()) {

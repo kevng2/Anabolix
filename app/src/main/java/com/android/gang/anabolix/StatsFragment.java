@@ -15,11 +15,9 @@ import android.view.ViewGroup;
  */
 public class StatsFragment extends Fragment {
 
-
     public StatsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,5 +25,4 @@ public class StatsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_stats, container, false);
     }
-
 }
