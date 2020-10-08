@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Anabolix</string>
-    <string name="_0">0</string>
-    <string name="pedometer">Pedometer</string>
+    <string name="home">Home</string>
+    <string name="stats">stats</string>
+    <string name="timer">timer</string>
+    <string name="weather">weather</string>
+    <string name="exercise">exercise</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pedometer">pedometer</string>
     <string name="step_count_out_of_num">%1$d / 10000</string>
+    <string name="_0">0</string>
 </resources>

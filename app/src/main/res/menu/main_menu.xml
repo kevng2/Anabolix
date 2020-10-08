@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home_black_24dp"
+         />
+    <item
+        android:id="@+id/exercise"
+        android:title="@string/exercise"
+        android:icon="@drawable/ic_accessibility_black_24dp"
+        />
+    <item
+        android:id="@+id/weather"
+        android:title="@string/weather"
+        android:icon="@drawable/ic_brightness_4_black_24dp"
+        />
+    <item
+        android:id="@+id/stats"
+        android:title="@string/stats"
+        android:icon="@drawable/ic_pie_chart_black_24dp"
+        />
+    <item
+        android:id="@+id/timer"
+        android:title="@string/timer"
+        android:icon="@drawable/ic_hourglass_full_black_24dp"
+        />
+</menu>
