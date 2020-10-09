@@ -6,9 +6,32 @@
     <string name="weather">weather</string>
     <string name="exercise">exercise</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pedometer">pedometer</string>
     <string name="step_count_out_of_num">%1$d / 10000</string>
     <string name="_0">0</string>
+
+    <!-- Login related strings -->
+    <string name="facebook_application_id" translatable="false">367527987927813</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb367527987927813</string>
+
+    <string-array name="exercise_list">
+        <item>Strength</item>
+        <item>Cardio</item>
+        <item>Endurance</item>
+        <item>Flexibility</item>
+        <item>Coordination</item>
+        <item>Balance</item>
+
+    </string-array>
+
+    <string-array name="exercise_descriptions">
+        <item>Body weight and external weight exercises to build strength and promote growth in muscles</item>
+        <item>Low intensity and high intensity workouts to build a healthy heart and cardiovascular strength</item>
+        <item>Prolonged low intensity workouts to build oxygen supply and time under tension</item>
+        <item>Exercises that promote stretching and flexing of muscles to increase motion in muscles and joints</item>
+        <item>Activities that help with mind and muscle connection to form better coordination </item>
+        <item>Movements that focus on centering the body to aid in better balance</item>
+    </string-array>
+
 </resources>
