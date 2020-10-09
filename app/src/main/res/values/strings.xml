@@ -15,4 +15,5 @@
     <!-- Login related strings -->
     <string name="facebook_application_id" translatable="false">367527987927813</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb367527987927813</string>
+
 </resources>
