@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mSamButton;
     private Button mLewisButton;
     private Button mCarterButton;
+    private Button mTiffanyButton;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -63,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "toooooast", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mTiffanyButton = findViewById(R.id.tiffany_button);
+        mTiffanyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent);
             }
         });
     }
