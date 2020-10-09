@@ -49,14 +49,14 @@
         app:layout_constraintTop_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/carter_button"
+        android:id="@+id/tiffany_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="75dp"
-        android:text="Carter's Button"
+        android:text="Tiffany's Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,7 +67,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-210dp" />
+        tools:layout_editor_absoluteY="-210dp">
+
+        <Button
+            android:id="@+id/carter_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="75dp"
+            android:text="Carter's Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
