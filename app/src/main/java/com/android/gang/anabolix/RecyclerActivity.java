@@ -11,8 +11,9 @@ public class RecyclerActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
 
-    String s1[], s2[];
-    int images[] = {R.drawable.strength,R.drawable.cardio,R.drawable.endurance,R.drawable.flexibility, R.drawable.cardio,R.drawable.balance};
+    String[] s1;
+    String[] s2;
+    int[] images = {R.drawable.strength, R.drawable.cardio,R.drawable.endurance,R.drawable.flexibility, R.drawable.cardio,R.drawable.balance};
 
 
     @Override
