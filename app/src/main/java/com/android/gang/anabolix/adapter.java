@@ -2,6 +2,7 @@ package com.android.gang.anabolix;
 
 import android.content.Context;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class adapter extends RecyclerView.Adapter<adapter.tiffViewHolder> {
+    private static final String TAG = "adapter";
 
     String data1[], data2[];
     int images[];
@@ -34,6 +36,7 @@ public class adapter extends RecyclerView.Adapter<adapter.tiffViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull tiffViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder: " + data1[position]);
         holder.title.setText(data1[position]);
         holder.description.setText(data2[position]);
         holder.imageView.setImageResource(position);
@@ -45,14 +48,13 @@ public class adapter extends RecyclerView.Adapter<adapter.tiffViewHolder> {
     }
 
     public class tiffViewHolder extends RecyclerView.ViewHolder {
-
         TextView title;
         TextView description;
         ImageView imageView;
 
         public tiffViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.title);
+            title = itemView.findViewById(R.id.Title);
             description = itemView.findViewById(R.id.Description);
             imageView = itemView.findViewById(R.id.imageView);
         }

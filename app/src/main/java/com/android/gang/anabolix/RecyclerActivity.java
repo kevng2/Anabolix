@@ -13,7 +13,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
     String[] s1;
     String[] s2;
-    int[] images = {R.drawable.strength, R.drawable.cardio,R.drawable.endurance,R.drawable.flexibility, R.drawable.cardio,R.drawable.balance};
+    int[] images = {R.drawable.strength, R.drawable.cardio, R.drawable.endurance, R.drawable.flexibility, R.drawable.cardio, R.drawable.balance};
 
 
     @Override
