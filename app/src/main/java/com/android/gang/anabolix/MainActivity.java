@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navMethod);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.RED));
         bottomNavigationView.setItemIconTintList(ColorStateList.valueOf(Color.RED));
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, new HomeFragment()).commit();
 
         mKevinButton = findViewById(R.id.kevin_button);
         mKevinButton.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                             fragment = new WeatherFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commit();
                     return true;
                 }
             };
