@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         mSamButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hi, I'm Sam!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CalorieCounterActivity.class);
+                startActivity(intent);
             }
         });
 
