@@ -11,6 +11,12 @@
     <string name="step_count_out_of_num">%1$d / 10000</string>
     <string name="_0">0</string>
 
+
+    <string name="title_activity_calorie_counter">CalorieCounterActivity</string>
+    <string name="add_remove_calories">Add or Remove Calories:</string>
+    <string name="current_calories">\t\tCurrent Calories:</string>
+
+
     <!-- Login related strings -->
     <string name="facebook_application_id" translatable="false">367527987927813</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb367527987927813</string>

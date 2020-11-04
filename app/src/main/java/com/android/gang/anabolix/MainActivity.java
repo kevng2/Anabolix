@@ -3,8 +3,6 @@ package com.android.gang.anabolix;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -14,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,12 +28,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        View v = getCurrentFocus();
+
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navMethod);
         bottomNavigationView.setItemTextColor(ColorStateList.valueOf(Color.RED));
         bottomNavigationView.setItemIconTintList(ColorStateList.valueOf(Color.RED));
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, new HomeFragment()).commit();
+
+        if (LoginActivity.checkLoggedIn() == false)
+            sendLogin(v);
 
         mKevinButton = findViewById(R.id.kevin_button);
         mKevinButton.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         mSamButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hi, I'm Sam!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, CalorieCounterActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -56,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
         mLewisButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendLogin(v);
+                Toast.makeText(MainActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                signOut();
             }
         });
 
@@ -101,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                             fragment = new WeatherFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, fragment).commit();
                     return true;
                 }
             };
@@ -109,5 +117,17 @@ public class MainActivity extends AppCompatActivity {
     private void sendLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+    }
+
+    public void signOut() {
+        // [START auth_fui_signout]
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        finish();
+                        startActivity(getIntent());
+                    }
+                });
     }
 }
