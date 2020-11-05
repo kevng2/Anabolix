@@ -10,7 +10,7 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-interface RunDAO {
+public interface RunDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertRun(Run run);
 

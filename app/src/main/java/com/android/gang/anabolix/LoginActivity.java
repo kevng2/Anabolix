@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,16 +24,25 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 265;
-    private boolean logged_in;
+    private static boolean logged_in;
     private Button mLoginButton;
+
+    public LoginActivity() {
+        super();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /* Saving for later in case something breaks
         setContentView(R.layout.activity_login);
         Intent intent = getIntent();
         updateSignButton();
 
+         */
+        signIn();
+        this.finish();
+        /* Saving for later in case something breaks
         mLoginButton = findViewById(R.id.logbutton);
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,8 +53,18 @@ public class LoginActivity extends AppCompatActivity {
                     signOut();
             }
         });
+
+
+ */
     }
 
+    public static boolean checkLoggedIn(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+            return true;
+        else
+            return false;
+    }
     protected void signIn() {
 
         //Authentication Providers
@@ -53,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                 //new AuthUI.IdpConfig.PhoneBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build(),
                 new AuthUI.IdpConfig.FacebookBuilder().build());
+
 
         //Create and launch sign in
         startActivityForResult(
@@ -74,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 logged_in = true;
-                updateSignButton();
+                FirebaseDatabase.getInstance().setPersistenceEnabled(true);
             } else {
                 // Sign in failed. If response is null the user canceled the
                 // sign-in flow using the back button.
@@ -83,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /* Saving for now, just in case something breaks
     public void signOut() {
         // [START auth_fui_signout]
         AuthUI.getInstance()
@@ -91,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         // ...
                         logged_in = false;
-                        updateSignButton();
+                        //updateSignButton();
                     }
                 });
     }
@@ -106,4 +129,5 @@ public class LoginActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.logbutton);
         textView.setText(button_message);
     }
+    */
 }

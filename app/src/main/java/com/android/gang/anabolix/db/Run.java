@@ -53,12 +53,12 @@ public class Run implements Serializable {
         mDistanceInFeet = distanceInFeet;
     }
 
-    public Long getTimeInMmillis() {
+    public Long getTimeInMillis() {
         return mTimeInMillis;
     }
 
-    public void setTimeInMmillis(Long timeInMmillis) {
-        mTimeInMillis = timeInMmillis;
+    public void setTimeInMillis(Long timeInMillis) {
+        mTimeInMillis = timeInMillis;
     }
 
     public int getCaloriesBurned() {
