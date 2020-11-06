@@ -95,8 +95,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="6dp"
-        android:contentDescription="Cake"
-        app:srcCompat="@drawable/cake" />
+        android:contentDescription="Cake"/>
 
     <TextView
         android:id="@+id/CalorieDisplay"
