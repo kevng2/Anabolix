@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.gang.anabolix.db.RunDAO;
-//import com.android.gang.anabolix.db.RunDAO_Impl;
+import com.android.gang.anabolix.db.RunDAO_Impl;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
