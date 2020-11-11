@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.gang.anabolix.db.RunDAO;
-import com.android.gang.anabolix.db.RunDAO_Impl;
+//import com.android.gang.anabolix.db.RunDAO_Impl;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
         mCarterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "toooooast", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
+                startActivity(intent);
             }
         });
 
