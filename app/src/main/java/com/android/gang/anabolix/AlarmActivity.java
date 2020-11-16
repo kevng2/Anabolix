@@ -14,10 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 public class AlarmActivity extends AppCompatActivity {
-
-
     private PendingIntent pendingIntent;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

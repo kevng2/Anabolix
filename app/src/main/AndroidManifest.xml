@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CalorieCounterActivity"></activity>
+        <activity android:name=".ui.RunActivity"></activity>
+        <activity android:name=".CalorieCounterActivity" />
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainActivity" />

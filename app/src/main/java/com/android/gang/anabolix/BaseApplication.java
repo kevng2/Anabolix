@@ -15,9 +15,13 @@ import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.android.HiltAndroidApp;
 import dagger.hilt.android.qualifiers.ApplicationContext;
+import timber.log.Timber;
 
 @HiltAndroidApp
 public class BaseApplication extends Application {
-
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Timber.plant(new Timber.DebugTree());
+    }
 }

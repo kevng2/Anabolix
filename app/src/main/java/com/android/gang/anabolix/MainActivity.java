@@ -3,18 +3,18 @@ package com.android.gang.anabolix;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.gang.anabolix.db.RunDAO;
-import com.android.gang.anabolix.db.RunDAO_Impl;
+import com.android.gang.anabolix.ui.RunActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mLewisButton;
     private Button mCarterButton;
     private Button mTiffanyButton;
+    private Button mRunButton;
     private BottomNavigationView bottomNavigationView;
 
     @Inject
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View v = getCurrentFocus();
-        Log.d(TAG, "onCreate: " + mRunDAO.hashCode());
 
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNav);
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setItemIconTintList(ColorStateList.valueOf(Color.RED));
         getSupportFragmentManager().beginTransaction().replace(R.id.main_layout, new HomeFragment()).commit();
 
-        if (LoginActivity.checkLoggedIn() == false)
+        if (!LoginActivity.checkLoggedIn())
             sendLogin(v);
 
         mKevinButton = findViewById(R.id.kevin_button);
@@ -97,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, RecyclerActivity.class);
                 startActivity(intent);
             }
+        });
+
+        mRunButton = findViewById(R.id.running_button);
+        mRunButton.setOnClickListener(v1 -> {
+            Intent intent = new Intent(MainActivity.this, RunActivity.class);
+            startActivity(intent);
         });
     }
 

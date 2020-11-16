@@ -1,7 +1,6 @@
 package com.android.gang.anabolix;
 
 import android.content.Context;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-public class adapter extends RecyclerView.Adapter<adapter.tiffViewHolder> {
+public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.tiffViewHolder> {
     private static final String TAG = "adapter";
 
     private OnRecyclerListener mOnRecyclerListener;
@@ -22,7 +21,7 @@ public class adapter extends RecyclerView.Adapter<adapter.tiffViewHolder> {
     int images[];
     Context context;
 
-    public adapter(Context ct, String s1[], String s2[], int img[], OnRecyclerListener onRecyclerListener) {
+    public ExerciseAdapter(Context ct, String s1[], String s2[], int img[], OnRecyclerListener onRecyclerListener) {
         context = ct;
         data1 = s1;
         data2 = s2;

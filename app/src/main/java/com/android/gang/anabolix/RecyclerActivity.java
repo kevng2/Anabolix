@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
-public class RecyclerActivity extends AppCompatActivity implements adapter.OnRecyclerListener {
+public class RecyclerActivity extends AppCompatActivity implements ExerciseAdapter.OnRecyclerListener {
 
     RecyclerView recyclerView;
 
@@ -28,8 +26,8 @@ public class RecyclerActivity extends AppCompatActivity implements adapter.OnRec
         s1 = getResources().getStringArray(R.array.exercise_list);
         s2 = getResources().getStringArray(R.array.exercise_descriptions);
 
-        adapter adapter = new adapter(getApplicationContext(), s1, s2, images, this);
-        recyclerView.setAdapter(adapter);
+        ExerciseAdapter ExerciseAdapter = new ExerciseAdapter(getApplicationContext(), s1, s2, images, this);
+        recyclerView.setAdapter(ExerciseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 

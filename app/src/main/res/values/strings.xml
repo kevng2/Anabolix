@@ -20,6 +20,10 @@
     <!-- Login related strings -->
     <string name="facebook_application_id" translatable="false">367527987927813</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb367527987927813</string>
+    <string name="calorie_counter">Calorie Counter</string>
+    <string name="exercises">Exercises</string>
+    <string name="log_out">Log Out</string>
+    <string name="run">Run</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>
