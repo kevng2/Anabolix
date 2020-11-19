@@ -24,6 +24,8 @@
     <string name="exercises">Exercises</string>
     <string name="log_out">Log Out</string>
     <string name="run">Run</string>
+    <string name="weight">Weight</string>
+    <string name="continue_string">Continue</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>
