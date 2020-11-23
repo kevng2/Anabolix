@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'com.google.gms.google-services'
 
 def apiKeyPropertiesFile = rootProject.file("apikey.properties")
 def apiKeyProperties = new Properties()
@@ -51,7 +52,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     // Firebase
-    implementation 'com.google.firebase:firebase-auth:20.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.facebook.android:facebook-android-sdk:7.1.0'
 
@@ -118,4 +119,12 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment:2.3.1"
     implementation "androidx.navigation:navigation-ui:2.3.1"
+
+    //Firebase Android BoM
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+
+    // Declare the dependency for the Realtime Database library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-database'
 }

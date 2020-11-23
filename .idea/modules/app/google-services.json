@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "335841611391",
+    "firebase_url": "https://anabolix-575e6.firebaseio.com",
+    "project_id": "anabolix-575e6",
+    "storage_bucket": "anabolix-575e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335841611391:android:df2173a393c206c36c794a",
+        "android_client_info": {
+          "package_name": "com.android.gang.anabolix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335841611391-bo9q5p4vnrbc6q4mrp9k4u2atrhd4jnr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.gang.anabolix",
+            "certificate_hash": "df45ead1105811e997c37ac0bf502613620b69bb"
+          }
+        },
+        {
+          "client_id": "335841611391-gkrb9hi0t0u2ti0a9i8rj7vv7hqqid01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc88-EGQkMduaF784NammRzYz_IV9IMgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335841611391-gkrb9hi0t0u2ti0a9i8rj7vv7hqqid01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
