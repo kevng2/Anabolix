@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.android.gang.anabolix.fragments.ExerciseFragment"
+        android:label="ExerciseFragment" />
+    <fragment
+        android:id="@+id/pedometerFragment"
+        android:name="com.android.gang.anabolix.fragments.PedometerFragment"
+        android:label="PedometerFragment" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.android.gang.anabolix.fragments.WeatherFragment"
+        android:label="WeatherFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.gang.anabolix.fragments.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.android.gang.anabolix.fragments.TimerFragment"
+        android:label="TimerFragment" />
+</navigation>

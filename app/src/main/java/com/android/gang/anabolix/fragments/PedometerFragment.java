@@ -1,6 +1,4 @@
-package com.android.gang.anabolix;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.android.gang.anabolix.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,13 +8,20 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.android.gang.anabolix.R;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
-public class PedometerActivity extends AppCompatActivity implements SensorEventListener {
+public class PedometerFragment extends Fragment implements SensorEventListener {
     private static final String TAG = "PedometerActivity";
     private final String USER_PREFERENCES = "user_preferences";
     private final String PREVIOUS_TOTAL_STEPS = "previous_total_steps";
@@ -28,30 +33,32 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
     private TextView mStepCount;
     private TextView mStepCountProgress;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.pedometer_fragment);
-        mStepCount = findViewById(R.id.step_count_text);
-        mStepCountProgress = findViewById(R.id.step_count_out_of);
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mCircularProgressBar = findViewById(R.id.progress_circular);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.pedometer_fragment, container, false);
+        mStepCount = v.findViewById(R.id.step_count_text);
+        mStepCountProgress = v.findViewById(R.id.step_count_out_of);
+        mSensorManager = (SensorManager) requireActivity().getSystemService(Context.SENSOR_SERVICE);
+        mCircularProgressBar = v.findViewById(R.id.progress_circular);
         loadData();
         resetSteps();
+        return v;
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mIsRunning = true;
         Sensor stepSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         if (stepSensor == null) {
-            Toast.makeText(this, "No sensor detected on this device", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "No sensor detected on this device", Toast.LENGTH_SHORT).show();
         } else {
             mSensorManager.registerListener(this, stepSensor, SensorManager.SENSOR_DELAY_UI);
         }
     }
+
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -64,35 +71,27 @@ public class PedometerActivity extends AppCompatActivity implements SensorEventL
         }
     }
 
-    void resetSteps() {
-        mStepCount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(PedometerActivity.this, "Long tap to reset steps", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void resetSteps() {
+        mStepCount.setOnClickListener(v -> Toast.makeText(getActivity(), "Long tap to reset steps", Toast.LENGTH_SHORT).show());
 
-        mStepCount.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                mPreviousTotalSteps = mTotalSteps;
-                mStepCount.setText("0");
-                mStepCountProgress.setText(getString(R.string.step_count_out_of_num, 0));
-                saveData();
-                return true;
-            }
+        mStepCount.setOnLongClickListener(v -> {
+            mPreviousTotalSteps = mTotalSteps;
+            mStepCount.setText("0");
+            mStepCountProgress.setText(getString(R.string.step_count_out_of_num, 0));
+            saveData();
+            return true;
         });
     }
 
     private void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat(PREVIOUS_TOTAL_STEPS, mPreviousTotalSteps);
         editor.apply();
     }
 
     private void loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
         float savedNumber = sharedPreferences.getFloat(PREVIOUS_TOTAL_STEPS, 0f);
         Log.d(TAG, "loadData: " + savedNumber);
         mPreviousTotalSteps = savedNumber;

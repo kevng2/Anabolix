@@ -29,21 +29,18 @@ public class RunActivity extends AppCompatActivity {
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.nav_host_fragment_container);
+        assert navHostFragment != null;
         NavigationUI.setupWithNavController(mBottomNavigationView, navHostFragment.getNavController());
 
         NavHostFragment
                 .findNavController(navHostFragment)
-                .addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-                    @Override
-                    public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                        if (destination.getId() == R.id.runFragment ||
-                                destination.getId() == R.id.settingsFragment ||
-                                destination.getId() == R.id.statisticsFragment) {
-                            mBottomNavigationView.setVisibility(View.VISIBLE);
-                        }
-                        else
-                            mBottomNavigationView.setVisibility(View.GONE);
-                    }
+                .addOnDestinationChangedListener((controller, destination, arguments) -> {
+                    if (destination.getId() == R.id.runFragment ||
+                            destination.getId() == R.id.settingsFragment ||
+                            destination.getId() == R.id.statisticsFragment) {
+                        mBottomNavigationView.setVisibility(View.VISIBLE);
+                    } else
+                        mBottomNavigationView.setVisibility(View.GONE);
                 });
     }
 }
