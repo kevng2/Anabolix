@@ -1,4 +1,4 @@
-package com.android.gang.anabolix;
+package com.android.gang.anabolix.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.gang.anabolix.R;
 import com.android.gang.anabolix.db.RunDAO;
 import com.android.gang.anabolix.ui.RunActivity;
 import com.firebase.ui.auth.AuthUI;

@@ -1,7 +1,8 @@
-package com.android.gang.anabolix;
+package com.android.gang.anabolix.ui;
 
 import android.os.Bundle;
 
+import com.android.gang.anabolix.R;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;

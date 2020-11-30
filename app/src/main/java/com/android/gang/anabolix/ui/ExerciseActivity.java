@@ -1,4 +1,4 @@
-package com.android.gang.anabolix;
+package com.android.gang.anabolix.ui;
 
 import android.os.Bundle;
 

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 import com.android.gang.anabolix.AlarmActivity;
-import com.android.gang.anabolix.CalorieCounterActivity;
+import com.android.gang.anabolix.ui.CalorieCounterActivity;
 import com.android.gang.anabolix.LoginActivity;
 import com.android.gang.anabolix.R;
 import com.android.gang.anabolix.RecyclerActivity;

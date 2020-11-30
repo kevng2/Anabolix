@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.android.gang.anabolix.ui.ExerciseActivity;
+
 public class RecyclerActivity extends AppCompatActivity implements ExerciseAdapter.OnRecyclerListener {
 
     RecyclerView recyclerView;
