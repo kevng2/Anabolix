@@ -5,10 +5,6 @@
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/exerciseFragment"
-        android:name="com.android.gang.anabolix.fragments.ExerciseFragment"
-        android:label="ExerciseFragment" />
-    <fragment
         android:id="@+id/pedometerFragment"
         android:name="com.android.gang.anabolix.fragments.PedometerFragment"
         android:label="PedometerFragment" />
@@ -21,7 +17,12 @@
         android:name="com.android.gang.anabolix.fragments.HomeFragment"
         android:label="HomeFragment" />
     <fragment
-        android:id="@+id/timerFragment"
-        android:name="com.android.gang.anabolix.fragments.TimerFragment"
-        android:label="TimerFragment" />
+        android:id="@+id/exerciseFragment"
+        android:name="com.android.gang.anabolix.fragments.ExerciseFragment"
+        android:label="exercise_fragment"
+        tools:layout="@layout/exercise_fragment" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.android.gang.anabolix.fragments.MoreFragment"
+        android:label="MoreFragment" />
 </navigation>

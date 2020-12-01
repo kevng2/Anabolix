@@ -3,32 +3,29 @@ package com.android.gang.anabolix.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
 import com.android.gang.anabolix.AlarmActivity;
 import com.android.gang.anabolix.ui.CalorieCounterActivity;
 import com.android.gang.anabolix.LoginActivity;
 import com.android.gang.anabolix.R;
-import com.android.gang.anabolix.RecyclerActivity;
 import com.android.gang.anabolix.ui.RunActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
     private Button mSamButton;
     private Button mLewisButton;
     private Button mCarterButton;
-    private Button mTiffanyButton;
     private Button mRunButton;
 
     @Override
@@ -54,12 +51,6 @@ public class HomeFragment extends Fragment {
         mCarterButton = v.findViewById(R.id.carter_button);
         mCarterButton.setOnClickListener(v14 -> {
             Intent intent = new Intent(requireActivity(), AlarmActivity.class);
-            startActivity(intent);
-        });
-
-        mTiffanyButton = v.findViewById(R.id.tiffany_button);
-        mTiffanyButton.setOnClickListener(v15 -> {
-            Intent intent = new Intent(requireActivity(), RecyclerActivity.class);
             startActivity(intent);
         });
 

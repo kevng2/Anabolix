@@ -23,7 +23,7 @@
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".ui.MainActivity" />
-        <activity android:name=".RecyclerActivity" />
+        <activity android:name=".fragments.ExerciseFragment" />
         <activity android:name=".PedometerActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".ui.MainActivity">

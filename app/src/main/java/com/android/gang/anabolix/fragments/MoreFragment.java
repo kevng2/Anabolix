@@ -11,15 +11,7 @@ import android.view.ViewGroup;
 
 import com.android.gang.anabolix.R;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TimerFragment extends Fragment {
-    public TimerFragment() {
-        // Required empty public constructor
-    }
-
+public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

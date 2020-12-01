@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Timber.plant(new Timber.DebugTree());
-        View v = getCurrentFocus();
 
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottomNav);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container_main);
+        assert navHostFragment != null;
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
     }
 }

@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_pie_chart_black_24dp"
         android:title="@string/stats" />
     <item
-        android:id="@+id/timerFragment"
-        android:icon="@drawable/ic_hourglass_full_black_24dp"
-        android:title="@string/timer" />
+        android:id="@+id/moreFragment"
+        android:icon="@drawable/ic_more"
+        android:title="@string/more" />
 </menu>

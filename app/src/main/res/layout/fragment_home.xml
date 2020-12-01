@@ -19,17 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/log_out"
-        app:layout_constraintTop_toBottomOf="@+id/tiffany_button"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <Button
-        android:id="@+id/tiffany_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/exercises"
-        app:layout_constraintTop_toBottomOf="@+id/sam_button"
-        tools:layout_editor_absoluteX="80dp" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sam_button" />
 
     <Button
         android:id="@+id/carter_button"
