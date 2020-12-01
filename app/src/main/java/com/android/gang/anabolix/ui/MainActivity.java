@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
 import com.android.gang.anabolix.R;
 import com.android.gang.anabolix.db.RunDAO;
+import com.android.gang.anabolix.other.Constants;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import javax.inject.Inject;
@@ -27,12 +30,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Timber.plant(new Timber.DebugTree());
-
         setContentView(R.layout.activity_main);
+        Timber.plant(new Timber.DebugTree());
         bottomNavigationView = findViewById(R.id.bottomNav);
+        navigateToTrackingFragmentIfNeeded(getIntent());
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container_main);
         assert navHostFragment != null;
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (bottomNavigationView != null)
+            bottomNavigationView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        navigateToTrackingFragmentIfNeeded(getIntent());
+    }
+
+    private void navigateToTrackingFragmentIfNeeded(Intent intent) {
+        Uri uri = Uri.parse("anabolix://com.android.gang.anabolix/tracking");
+
+        if (intent.getAction() == Constants.ACTION_SHOW_TRACKING_FRAGMENT) {
+            NavHostFragment navHostFragment =
+                    (NavHostFragment) getSupportFragmentManager()
+                            .findFragmentById(R.id.nav_host_fragment_container_main);
+
+            assert navHostFragment != null;
+            NavHostFragment.findNavController(navHostFragment).navigate(uri);
+            bottomNavigationView.setVisibility(View.GONE);
+        }
     }
 }
