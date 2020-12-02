@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
     app:startDestination="@id/homeFragment">
-    <include app:graph="@navigation/nav_graph" />
     <action
-        android:id="@+id/action_global_trackingFragment"
-        app:destination="@+id/trackingFragment"
+        android:id="@+id/action_global_nav_graph"
+        app:destination="@+id/runActivity"
         app:launchSingleTop="true" />
     <fragment
         android:id="@+id/pedometerFragment"
@@ -30,5 +29,10 @@
         android:id="@+id/moreFragment"
         android:name="com.android.gang.anabolix.fragments.MoreFragment"
         android:label="MoreFragment" />
+    <activity
+        android:id="@+id/runActivity"
+        android:name="com.android.gang.anabolix.ui.RunActivity"
+        android:label="activity_run"
+        tools:layout="@layout/activity_run" />
 
 </navigation>

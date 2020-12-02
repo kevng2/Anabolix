@@ -2,7 +2,6 @@ package com.android.gang.anabolix.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,8 @@ import com.android.gang.anabolix.other.Constants;
 import com.android.gang.anabolix.services.TrackingService;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
 
 public class TrackingFragment extends Fragment {
-    private static final String TAG = "TrackingFragment";
     private Button mToggleButton;
     private GoogleMap mGoogleMap;
     private MapView mMapView;
