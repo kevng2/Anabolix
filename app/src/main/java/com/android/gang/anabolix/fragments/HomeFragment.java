@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.gang.anabolix.AlarmActivity;
+import com.android.gang.anabolix.WeatherActivity;
 import com.android.gang.anabolix.ui.CalorieCounterActivity;
 import com.android.gang.anabolix.LoginActivity;
 import com.android.gang.anabolix.R;
@@ -27,21 +28,26 @@ public class HomeFragment extends Fragment {
     private Button mLewisButton;
     private Button mCarterButton;
     private Button mRunButton;
+    private Button WeatherButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-        if (!LoginActivity.checkLoggedIn())
-            sendLogin(v);
+       // if (!LoginActivity.checkLoggedIn())
+           // sendLogin(v);
 
         mSamButton = v.findViewById(R.id.sam_button);
         mSamButton.setOnClickListener(v12 -> {
             Intent intent = new Intent(requireActivity(), CalorieCounterActivity.class);
             startActivity(intent);
         });
-
+        WeatherButton = v.findViewById(R.id.weather_button);
+        WeatherButton.setOnClickListener(v12 -> {
+            Intent intent = new Intent(requireActivity(), WeatherActivity.class);
+            startActivity(intent);
+        });
         mLewisButton = v.findViewById(R.id.lewis_button);
         mLewisButton.setOnClickListener(v13 -> {
             Toast.makeText(requireActivity(), "Logged Out", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/calorie_counter"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/log_out"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sam_button" />
+        app:layout_constraintTop_toBottomOf="@+id/sam_button" />
 
     <Button
         android:id="@+id/carter_button"
@@ -37,5 +37,14 @@
         android:text="@string/run"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carter_button" />
+
+    <Button
+        android:id="@+id/weather_button"
+        android:layout_width="372dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/weather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/running_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

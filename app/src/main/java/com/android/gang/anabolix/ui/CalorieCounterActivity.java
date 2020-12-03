@@ -48,7 +48,7 @@ public class CalorieCounterActivity extends AppCompatActivity {
         AddCalorieButton = (Button) findViewById(R.id.addCalories);
         SubtractCalorieButton = (Button) findViewById(R.id.subtractCalories);
         CalorieDisplay = (TextView) findViewById(R.id.CalorieDisplay);
-        mCake = findViewById(R.id.imageView2);
+        mCake = findViewById(R.id.imageView);
 
         Glide
                 .with(this)
