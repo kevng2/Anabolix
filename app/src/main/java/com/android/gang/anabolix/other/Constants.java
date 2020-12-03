@@ -2,7 +2,6 @@ package com.android.gang.anabolix.other;
 
 import android.graphics.Color;
 
-import com.android.gang.anabolix.R;
 
 public class Constants {
     public static final String RUNNING_DATABASE_NAME = "running_db";
