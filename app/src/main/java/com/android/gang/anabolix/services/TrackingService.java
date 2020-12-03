@@ -71,16 +71,22 @@ public class TrackingService extends LifecycleService {
                     isFirstRun = false;
                 } else {
                     Timber.d("Resuming service");
+                    startForegroundService();
                 }
                 break;
             case Constants.ACTION_PAUSE_SERVICE:
                 Timber.d("onStartCommand: Paused service");
+                pauseService();
                 break;
             case Constants.ACTION_STOP_SERVICE:
                 Timber.d("onStartCommand: Stopped service");
                 break;
         }
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    private void pauseService() {
+        isTracking.postValue(false);
     }
 
     private void updateLocationTracking(Boolean isTracking) {
@@ -146,6 +152,7 @@ public class TrackingService extends LifecycleService {
                 getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            assert notificationManager != null;
             createNotificationChanel(notificationManager);
         }
 
