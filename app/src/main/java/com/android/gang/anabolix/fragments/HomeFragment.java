@@ -14,9 +14,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.gang.anabolix.AlarmActivity;
-import com.android.gang.anabolix.WeatherActivity;
 import com.android.gang.anabolix.ui.CalorieCounterActivity;
-import com.android.gang.anabolix.LoginActivity;
+import com.android.gang.anabolix.ui.LoginActivity;
 import com.android.gang.anabolix.R;
 import com.android.gang.anabolix.ui.RunActivity;
 import com.firebase.ui.auth.AuthUI;
@@ -35,8 +34,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-       // if (!LoginActivity.checkLoggedIn())
-           // sendLogin(v);
+       if (!LoginActivity.checkLoggedIn())
+           sendLogin(v);
 
         mSamButton = v.findViewById(R.id.sam_button);
         mSamButton.setOnClickListener(v12 -> {
@@ -45,9 +44,10 @@ public class HomeFragment extends Fragment {
         });
         WeatherButton = v.findViewById(R.id.weather_button);
         WeatherButton.setOnClickListener(v12 -> {
-            Intent intent = new Intent(requireActivity(), WeatherActivity.class);
+            Intent intent = new Intent(requireActivity(), WeatherFragment.class);
             startActivity(intent);
         });
+
         mLewisButton = v.findViewById(R.id.lewis_button);
         mLewisButton.setOnClickListener(v13 -> {
             Toast.makeText(requireActivity(), "Logged Out", Toast.LENGTH_SHORT).show();

@@ -22,10 +22,9 @@
         <activity android:name=".ui.RunActivity" />
         <activity android:name=".ui.CalorieCounterActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:parentActivityName=".ui.MainActivity" />
         <activity android:name=".fragments.ExerciseFragment" />
-        <activity android:name=".PedometerActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
@@ -35,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ExerciseActivity" />
-        <activity android:name=".WeatherActivity" />
+        <activity android:name=".fragments.WeatherFragment" />
 
         <service
             android:name=".services.TrackingService"

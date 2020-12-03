@@ -1,4 +1,4 @@
-package com.android.gang.anabolix;
+package com.android.gang.anabolix.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
