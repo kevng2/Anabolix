@@ -35,8 +35,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-       // if (!LoginActivity.checkLoggedIn())
-           // sendLogin(v);
+        if (!LoginActivity.checkLoggedIn())
+           sendLogin(v);
 
         mSamButton = v.findViewById(R.id.sam_button);
         mSamButton.setOnClickListener(v12 -> {
