@@ -36,6 +36,8 @@
     <string name="searchArrow"><![CDATA[->]]></string>
     <string name="finish_run">Finish Run</string>
     <string name="start">Start</string>
+    <string name="log_your_calories">Log your calories</string>
+    <string name="go_on_a_run">Go on a run</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>
