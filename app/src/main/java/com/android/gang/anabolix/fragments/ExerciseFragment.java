@@ -16,6 +16,11 @@ import android.view.ViewGroup;
 import com.android.gang.anabolix.ExerciseAdapter;
 import com.android.gang.anabolix.R;
 import com.android.gang.anabolix.ui.ExerciseActivity;
+import com.android.gang.anabolix.ui.ExerciseActivity2;
+import com.android.gang.anabolix.ui.ExerciseActivity3;
+import com.android.gang.anabolix.ui.ExerciseActivity4;
+import com.android.gang.anabolix.ui.ExerciseActivity5;
+import com.android.gang.anabolix.ui.ExerciseActivity6;
 
 public class ExerciseFragment extends Fragment implements ExerciseAdapter.OnRecyclerListener {
     private RecyclerView recyclerView;
@@ -41,7 +46,25 @@ public class ExerciseFragment extends Fragment implements ExerciseAdapter.OnRecy
 
     @Override
     public void onRecyclerClick(int position) {
-        Intent intent = new Intent(requireActivity(), ExerciseActivity.class);
-        startActivity(intent);
+        if (position == 0) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity.class);
+            startActivity(intent);
+        } else if (position == 1) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity2.class);
+            startActivity(intent);
+        } else if (position == 2) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity3.class);
+            startActivity(intent);
+        } else if (position == 3) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity4.class);
+            startActivity(intent);
+        } else if (position == 4) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity5.class);
+            startActivity(intent);
+        } else if (position == 5) {
+            Intent intent = new Intent(requireActivity(), ExerciseActivity6.class);
+            startActivity(intent);
+        }
+
     }
 }

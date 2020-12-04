@@ -19,7 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.ExerciseActivity"></activity>
+        <activity android:name=".ui.ExerciseActivity6"></activity>
+        <activity android:name=".ui.ExerciseActivity5" />
+        <activity android:name=".ui.ExerciseActivity4" />
+        <activity android:name=".ui.ExerciseActivity3" />
+        <activity android:name=".ui.ExerciseActivity2" />
+        <activity android:name=".ui.ExerciseActivity" />
         <activity android:name=".ui.RunActivity" />
         <activity android:name=".ui.CalorieCounterActivity" />
         <activity
