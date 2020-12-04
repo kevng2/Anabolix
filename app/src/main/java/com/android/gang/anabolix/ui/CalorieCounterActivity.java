@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalorieCounterActivity extends AppCompatActivity {
     private EditText editCalorie;
@@ -82,13 +83,17 @@ public class CalorieCounterActivity extends AppCompatActivity {
 
     private void UpdateUserCalorie(int result){
         mDatabase.child("users").child(userId).child("calories").setValue(result);
+        if (result >= 2000)
+        {
+            Toast.makeText(getApplicationContext(),"Daily Calorie Goal Reached!",Toast.LENGTH_SHORT).show();
+        }
     }
 
-    private void setUserCal(int value){
+    protected void setUserCal(int value){
         userCal = value;
     }
 
-    private int getUserCal(){
+    protected int getUserCal(){
         return userCal;
     }
 
@@ -100,8 +105,10 @@ public class CalorieCounterActivity extends AppCompatActivity {
                     setUserCal(0);
                 else {
                     setUserCal(Integer.parseInt(snapshot.getValue().toString()));
-                    //Loads correct info here
-                    Log.d("tag", Integer.toString(getUserCal()));
+                    if (Integer.parseInt(snapshot.getValue().toString()) >= 2000)
+                    {
+                        Toast.makeText(getApplicationContext(),"Daily Calorie Goal Already Reached!",Toast.LENGTH_SHORT).show();
+                    }
 
                 }
 
