@@ -35,12 +35,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Saving for later in case something breaks
+        //setContentView(R.layout.activity_login);
+        //Intent intent = getIntent();
+        //updateSignButton();
         setContentView(R.layout.activity_login);
-        /* Saving for later in case something breaks
-        setContentView(R.layout.activity_login);
-        Intent intent = getIntent();
-        updateSignButton();
-         */
 
         if (checkLoggedIn()) {
             startActivity(new Intent(this, MainActivity.class));
