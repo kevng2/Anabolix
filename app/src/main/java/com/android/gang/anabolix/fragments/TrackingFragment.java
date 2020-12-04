@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Chronometer;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,6 +31,7 @@ public class TrackingFragment extends Fragment {
     private MapView mMapView;
     private boolean isTracking = false;
     private ArrayList<ArrayList<LatLng>> pathPoints = new ArrayList<>();
+    private Chronometer mChronometer;
 
     @Nullable
     @Override
@@ -47,7 +49,9 @@ public class TrackingFragment extends Fragment {
             addAllPolyLines();
         });
         mFinishRun = view.findViewById(R.id.btnFinishRun);
+        mFinishRun.setOnClickListener(v -> toggleRun());
         mToggleButton = view.findViewById(R.id.btnToggleRun);
+        mChronometer = view.findViewById(R.id.chronometer);
         mToggleButton.setOnClickListener(v -> toggleRun());
         subscribeToObservers();
     }
@@ -65,8 +69,10 @@ public class TrackingFragment extends Fragment {
     private void toggleRun() {
         if (isTracking) {
             sendCommandToService(Constants.ACTION_PAUSE_SERVICE);
+            mChronometer.stop();
         } else {
             sendCommandToService(Constants.ACTION_START_OR_RESUME_SERVICE);
+            mChronometer.start();
         }
     }
 

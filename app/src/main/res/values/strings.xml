@@ -34,6 +34,8 @@
     <string name="more">More</string>
     <string name="autumn_image">autumn_image</string>
     <string name="searchArrow"><![CDATA[->]]></string>
+    <string name="finish_run">Finish Run</string>
+    <string name="start">Start</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>
