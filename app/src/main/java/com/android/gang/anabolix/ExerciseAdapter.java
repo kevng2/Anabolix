@@ -1,7 +1,6 @@
 package com.android.gang.anabolix;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import timber.log.Timber;
+
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.tiffViewHolder> {
-    private static final String TAG = "adapter";
-
     private OnRecyclerListener mOnRecyclerListener;
-    String data1[], data2[];
-    int images[];
-    Context context;
+    private String[] data1;
+    private String[] data2;
+    private int[] images;
+    private Context context;
 
-    public ExerciseAdapter(Context ct, String s1[], String s2[], int img[], OnRecyclerListener onRecyclerListener) {
+    public ExerciseAdapter(Context ct, String[] s1, String[] s2, int[] img, OnRecyclerListener onRecyclerListener) {
         context = ct;
         data1 = s1;
         data2 = s2;
@@ -32,25 +32,21 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.tiffVi
     @NonNull
     @Override
     public tiffViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tiff_row, parent, false);
-        //tiffViewHolder tiffViewHolder = new tiffViewHolder(view);
-        //return tiffViewHolder;
-
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.tiff_row,parent,false);
+        View view = inflater.inflate(R.layout.tiff_row, parent, false);
         return new tiffViewHolder(view, mOnRecyclerListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull tiffViewHolder holder, int position) {
-        Log.d(TAG, "onBindViewHolder: " + data1[position]);
+        Timber.d("onBindViewHolder: %s", data1[position]);
 
         int image_id = images[position];
         //holder.imageView.setImageResource(image_id);
         holder.title.setText(data1[position]);
         holder.description.setText(data2[position]);
 
-                Glide
+        Glide
                 .with(context)
                 .load(image_id)
                 .into(holder.imageView);
@@ -67,7 +63,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.tiffVi
         ImageView imageView;
         OnRecyclerListener onRecyclerListener;
 
-        public tiffViewHolder(@NonNull View itemView, OnRecyclerListener onRecyclerListener) {
+        tiffViewHolder(@NonNull View itemView, OnRecyclerListener onRecyclerListener) {
             super(itemView);
             title = itemView.findViewById(R.id.Title);
             description = itemView.findViewById(R.id.Description);

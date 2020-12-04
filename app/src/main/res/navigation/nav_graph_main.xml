@@ -13,10 +13,6 @@
         android:name="com.android.gang.anabolix.fragments.PedometerFragment"
         android:label="PedometerFragment" />
     <fragment
-        android:id="@+id/weatherFragment"
-        android:name="com.android.gang.anabolix.fragments.WeatherFragment"
-        android:label="WeatherFragment" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.android.gang.anabolix.fragments.HomeFragment"
         android:label="HomeFragment" />
@@ -34,5 +30,9 @@
         android:name="com.android.gang.anabolix.ui.RunActivity"
         android:label="activity_run"
         tools:layout="@layout/activity_run" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.android.gang.anabolix.fragments.WeatherFragment"
+        android:label="WeatherFragment" />
 
 </navigation>

@@ -63,6 +63,7 @@ public class TrackingService extends LifecycleService {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(@NonNull Intent intent, int flags, int startId) {
+        addEmptyPolyline();
         switch (Objects.requireNonNull(intent.getAction())) {
             case Constants.ACTION_START_OR_RESUME_SERVICE:
                 Timber.d("onStartCommand: Started or resumed service");
@@ -145,7 +146,6 @@ public class TrackingService extends LifecycleService {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void startForegroundService() {
-        addEmptyPolyline();
         isTracking.postValue(true);
 
         NotificationManager notificationManager = (NotificationManager)
