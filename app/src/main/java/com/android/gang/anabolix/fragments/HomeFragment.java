@@ -4,6 +4,7 @@ package com.android.gang.anabolix.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,10 +21,10 @@ import com.android.gang.anabolix.ui.RunActivity;
 import com.firebase.ui.auth.AuthUI;
 
 public class HomeFragment extends Fragment {
-    private Button mSamButton;
+    private CardView mSamButton;
     private Button mLewisButton;
     private Button mCarterButton;
-    private Button mRunButton;
+    private CardView mRunButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,11 +55,6 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         return v;
-    }
-
-    private void sendLogin(View view) {
-        Intent intent = new Intent(requireActivity(), LoginActivity.class);
-        startActivity(intent);
     }
 
     public void signOut() {

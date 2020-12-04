@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.gang.anabolix">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.ExerciseActivity6"></activity>
+        <activity android:name=".ui.ExerciseActivity5" />
+        <activity android:name=".ui.ExerciseActivity4" />
+        <activity android:name=".ui.ExerciseActivity3" />
+        <activity android:name=".ui.ExerciseActivity2" />
+        <activity android:name=".ui.ExerciseActivity" />
         <activity android:name=".ui.RunActivity" />
         <activity android:name=".ui.CalorieCounterActivity" />
         <activity
@@ -26,13 +32,13 @@
             android:parentActivityName=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".fragments.ExerciseFragment" />
         <activity android:name=".AlarmActivity" />
-        <activity android:name=".ui.MainActivity"></activity>
-        <activity android:name=".ui.ExerciseActivity" />
+        <activity android:name=".ui.MainActivity" />
         <activity android:name=".fragments.WeatherFragment" />
 
         <service
