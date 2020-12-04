@@ -8,11 +8,14 @@ import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -22,7 +25,7 @@ import java.util.Calendar;
 
 public class AlarmActivity extends AppCompatActivity {
 
-
+    TimePicker picker;
     private PendingIntent pendingIntent;
 
 
@@ -30,6 +33,11 @@ public class AlarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
+        createNotificationChannel();
+        CharSequence test = "Daily Reminder Set";
+        TimePicker picker=(TimePicker)findViewById(R.id.timePicker1);
+        picker.setIs24HourView(true);
+
 
         Intent alarmIntent = new Intent(AlarmActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, alarmIntent, 0);
@@ -38,23 +46,58 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //start();
-                addNotification();
+                //addNotification();
+                int hour, minute;
+                if (Build.VERSION.SDK_INT >= 23 ){
+                    hour = picker.getHour();
+                    minute = picker.getMinute();
+                }
+                else{
+                    hour = picker.getCurrentHour();
+                    minute = picker.getCurrentMinute();
+                }
+                Toast.makeText(AlarmActivity.this, test, Toast.LENGTH_SHORT).show();
+
+
+
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+                long currentTime = System.currentTimeMillis();
+
+                long hoursinmillis = hour*60*60*1000;
+                long minuteinmillis = minute*60*1000;
+
+                long setTime = currentTime - (hour + minute);
+
+
+
+
+
+                alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + 10000,  pendingIntent);
             }
         });
 
-        findViewById(R.id.stopAlarm).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel();
-            }
-        });
 
-        findViewById(R.id.stopAlarmAt10).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startAt10();
-            }
-        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+        CharSequence name = "WalkNotificationChannel";
+        String description = "Channel for Walk reminder";
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
+        NotificationChannel channel = new NotificationChannel("notifyWalk", name, importance);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            channel = new NotificationChannel("notifyWalk", name, importance);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            channel.setDescription(description);
+        }
+
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
     private void addNotification() {
@@ -129,8 +172,8 @@ public class AlarmActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 10);
-        calendar.set(Calendar.MINUTE, 30);
+        calendar.set(Calendar.HOUR_OF_DAY, 14);
+        calendar.set(Calendar.MINUTE, 21);
 
 
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
