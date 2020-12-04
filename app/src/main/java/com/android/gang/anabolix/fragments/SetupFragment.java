@@ -37,8 +37,9 @@ public class SetupFragment extends Fragment {
                         .findFragmentById(R.id.nav_host_fragment_container);
 
         mContinue.setOnClickListener(v -> {
+            assert navHostFragment != null;
             NavHostFragment.findNavController(navHostFragment)
-                    .navigate(R.id.action_setupFragment_to_runFragment);
+                    .navigate(R.id.trackingFragment);
         });
     }
 }

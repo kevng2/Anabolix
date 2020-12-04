@@ -40,7 +40,7 @@
         <activity android:name=".AlarmActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".fragments.WeatherFragment" />
-
+        <receiver android:name=".AlarmReceiver"></receiver>
         <service
             android:name=".services.TrackingService"
             android:foregroundServiceType="location" />

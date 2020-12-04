@@ -3,7 +3,6 @@ package com.android.gang.anabolix.fragments;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +21,15 @@ import java.util.List;
 
 import pub.devrel.easypermissions.AppSettingsDialog;
 import pub.devrel.easypermissions.EasyPermissions;
+import timber.log.Timber;
 
 public class RunFragment extends Fragment implements EasyPermissions.PermissionCallbacks {
-    private static final String TAG = "RunFragment";
     private FloatingActionButton mAddRun;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d(TAG, "onCreateView: Inside Run Fragment");
+        Timber.d("onCreateView: Inside Run Fragment");
         return inflater.inflate(R.layout.fragment_run, container, false);
     }
 
@@ -40,9 +39,8 @@ public class RunFragment extends Fragment implements EasyPermissions.PermissionC
         mAddRun = view.findViewById(R.id.add_floating_action_button);
 
 
-        mAddRun.setOnClickListener(v -> {
-            NavHostFragment.findNavController(this).navigate(R.id.action_runFragment_to_trackingFragment);
-        });
+        mAddRun.setOnClickListener(v ->
+                NavHostFragment.findNavController(this).navigate(R.id.trackingFragment));
         requestPermissions();
     }
 

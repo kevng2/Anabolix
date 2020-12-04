@@ -23,66 +23,56 @@ import com.android.gang.anabolix.ui.MainActivity;
 
 import java.util.Calendar;
 
+import timber.log.Timber;
+
 public class AlarmActivity extends AppCompatActivity {
 
     TimePicker picker;
     private PendingIntent pendingIntent;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
         createNotificationChannel();
         CharSequence test = "Daily Reminder Set";
-        TimePicker picker=(TimePicker)findViewById(R.id.timePicker1);
+        TimePicker picker = findViewById(R.id.timePicker1);
         picker.setIs24HourView(true);
 
 
         Intent alarmIntent = new Intent(AlarmActivity.this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(AlarmActivity.this, 0, alarmIntent, 0);
 
-        findViewById(R.id.startAlarm).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //start();
-                //addNotification();
-                int hour, minute;
-                if (Build.VERSION.SDK_INT >= 23 ){
-                    hour = picker.getHour();
-                    minute = picker.getMinute();
-                }
-                else{
-                    hour = picker.getCurrentHour();
-                    minute = picker.getCurrentMinute();
-                }
-                Toast.makeText(AlarmActivity.this, test, Toast.LENGTH_SHORT).show();
+        findViewById(R.id.startAlarm).setOnClickListener(v -> {
+            //start();
+            //addNotification();
+            int hour, minute;
+            hour = picker.getHour();
+            minute = picker.getMinute();
+            Toast.makeText(AlarmActivity.this, test, Toast.LENGTH_SHORT).show();
 
 
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            long currentTime = System.currentTimeMillis();
 
-                long currentTime = System.currentTimeMillis();
+            long hoursinmillis = hour * 60 * 60 * 1000;
+            long minuteinmillis = minute * 60 * 1000;
 
-                long hoursinmillis = hour*60*60*1000;
-                long minuteinmillis = minute*60*1000;
-
-                long setTime = currentTime - (hour + minute);
-
+            long setTime = currentTime - (hour + minute);
 
 
-
-
-                alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + 10000,  pendingIntent);
-            }
+            assert alarmManager != null;
+            alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000L, pendingIntent);
+            Timber.d("Alarm set");
         });
-
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ;
         CharSequence name = "WalkNotificationChannel";
         String description = "Channel for Walk reminder";
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
@@ -96,6 +86,7 @@ public class AlarmActivity extends AppCompatActivity {
 
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            assert notificationManager != null;
             notificationManager.createNotificationChannel(channel);
         }
     }
@@ -143,10 +134,6 @@ public class AlarmActivity extends AppCompatActivity {
             builder.setContentIntent(resultPendingIntent);
             notificationManager.notify(NOTIFICATION_ID, builder.build());
         }
-
-
-
-
 
 
     }

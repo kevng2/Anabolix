@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/setupFragment">
+    app:startDestination="@id/trackingFragment">
 
-    <fragment
-        android:id="@+id/runFragment"
-        android:name="com.android.gang.anabolix.fragments.RunFragment"
-        android:label="RunFragment" >
-        <action
-            android:id="@+id/action_runFragment_to_trackingFragment"
-            app:destination="@id/trackingFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.android.gang.anabolix.fragments.SettingsFragment"
-        android:label="SettingsFragment" />
     <fragment
         android:id="@+id/trackingFragment"
         android:name="com.android.gang.anabolix.fragments.TrackingFragment"
         android:label="TrackingFragment" >
-        <action
-            android:id="@+id/action_trackingFragment_to_runFragment"
-            app:destination="@id/runFragment" />
         <deepLink app:uri="anabolix://com.android.gang.anabolix/tracking"/>
     </fragment>
-    <fragment
-        android:id="@+id/setupFragment"
-        android:name="com.android.gang.anabolix.fragments.SetupFragment"
-        android:label="SetupFragment" >
-        <action
-            android:id="@+id/action_setupFragment_to_runFragment"
-            app:destination="@id/runFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/statisticsFragment"
-        android:name="com.android.gang.anabolix.fragments.StatisticsFragment"
-        android:label="StatisticsFragment" />
 </navigation>
