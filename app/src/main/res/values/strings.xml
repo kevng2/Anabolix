@@ -15,11 +15,10 @@
     <string name="title_activity_calorie_counter">CalorieCounterActivity</string>
     <string name="add_remove_calories">Add or Remove Calories:</string>
     <string name="current_calories">\t\tCurrent Calories:</string>
-    
+
     <string name="Weather_Checker"> Search for Weather by Location! </string>
     <string name="Search"> Search for Weather by Location! </string>
     <string name="Enter_Location"> Enter Desired Location: </string>
-
 
 
     <!-- Login related strings -->
