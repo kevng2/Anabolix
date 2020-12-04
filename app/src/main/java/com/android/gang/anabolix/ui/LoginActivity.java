@@ -1,4 +1,4 @@
-package com.android.gang.anabolix;
+package com.android.gang.anabolix.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.android.gang.anabolix.R;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,14 +35,19 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /* Saving for later in case something breaks
+        // Saving for later in case something breaks
+        //setContentView(R.layout.activity_login);
+        //Intent intent = getIntent();
+        //updateSignButton();
         setContentView(R.layout.activity_login);
-        Intent intent = getIntent();
-        updateSignButton();
 
-         */
-        signIn();
-        this.finish();
+        if (checkLoggedIn()) {
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else {
+            signIn();
+        }
+        //this.finish();
         /* Saving for later in case something breaks
         mLoginButton = findViewById(R.id.logbutton);
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -53,20 +59,18 @@ public class LoginActivity extends AppCompatActivity {
                     signOut();
             }
         });
-
-
  */
     }
 
-    public static boolean checkLoggedIn(){
+    public static boolean checkLoggedIn() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null)
             return true;
         else
             return false;
     }
-    protected void signIn() {
 
+    protected void signIn() {
         //Authentication Providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 //Email and Phone if needed later
@@ -91,16 +95,17 @@ public class LoginActivity extends AppCompatActivity {
 
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
-
             if (resultCode == RESULT_OK) {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 logged_in = true;
                 FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
             } else {
                 // Sign in failed. If response is null the user canceled the
                 // sign-in flow using the back button.
-                if (response == null){
+                if (response == null) {
                     logged_in = false;
                     signIn();
                 }

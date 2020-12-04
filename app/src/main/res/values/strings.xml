@@ -15,11 +15,10 @@
     <string name="title_activity_calorie_counter">CalorieCounterActivity</string>
     <string name="add_remove_calories">Add or Remove Calories:</string>
     <string name="current_calories">\t\tCurrent Calories:</string>
-    
+
     <string name="Weather_Checker"> Search for Weather by Location! </string>
     <string name="Search"> Search for Weather by Location! </string>
     <string name="Enter_Location"> Enter Desired Location: </string>
-
 
 
     <!-- Login related strings -->
@@ -34,6 +33,11 @@
     <string name="more">More</string>
     <string name="autumn_image">autumn_image</string>
     <string name="searchArrow"><![CDATA[->]]></string>
+    <string name="finish_run">Finish Run</string>
+    <string name="start">Start</string>
+    <string name="log_your_calories">Log your calories</string>
+    <string name="go_on_a_run">Go on a run</string>
+    <string name="enter_city">Enter City</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>
