@@ -38,6 +38,7 @@
     <string name="start">Start</string>
     <string name="log_your_calories">Log your calories</string>
     <string name="go_on_a_run">Go on a run</string>
+    <string name="enter_city">Enter City</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>

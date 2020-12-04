@@ -14,10 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="11dp"
         android:backgroundTint="#0734B9"
-        android:onClick="search"
         android:text="@string/searchArrow"
         android:textSize="24sp"
         app:iconTint="#0734B9"
@@ -47,9 +46,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="12dp"
         android:layout_toStartOf="@id/searchLocation"
-        android:editable="true"
         android:ems="10"
-        android:hint="Enter City"
+        android:hint="@string/enter_city"
         android:importantForAutofill="no"
         android:inputType="text"
         tools:ignore="LabelFor" />
@@ -62,8 +60,8 @@
 
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/Enter_Location"
         android:textColor="#1649EC"
@@ -77,7 +75,6 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="11dp"
-        android:editable="false"
         android:gravity="center"
         android:textSize="18sp" />
 
