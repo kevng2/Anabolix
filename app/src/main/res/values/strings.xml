@@ -38,6 +38,8 @@
     <string name="log_your_calories">Log your calories</string>
     <string name="go_on_a_run">Go on a run</string>
     <string name="enter_city">Enter City</string>
+    <string name="set_a_daily_reminder">Set a daily reminder</string>
+    <string name="set_a_reminder_to_walk">Set a reminder to walk</string>
 
     <string-array name="exercise_list">
         <item>Strength</item>

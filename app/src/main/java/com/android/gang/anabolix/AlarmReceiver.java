@@ -14,7 +14,7 @@ public class AlarmReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "notifyWalk")
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_alarm)
                 .setContentTitle("Walk Time!")
                 .setContentText("Your daily walk alarm")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);

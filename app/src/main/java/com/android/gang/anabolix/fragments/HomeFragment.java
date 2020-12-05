@@ -23,7 +23,7 @@ import com.firebase.ui.auth.AuthUI;
 public class HomeFragment extends Fragment {
     private CardView mSamButton;
     private Button mLewisButton;
-    private Button mCarterButton;
+    private CardView mCarterButton;
     private CardView mRunButton;
 
     @Override
