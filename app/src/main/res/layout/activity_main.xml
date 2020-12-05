@@ -5,49 +5,21 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
-    <Button
-        android:id="@+id/kevin_button"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pedometer"
-        app:layout_constraintTop_toTopOf="@+id/main_layout"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <Button
-        android:id="@+id/sam_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sam's Button!"
-
-        app:layout_constraintTop_toBottomOf="@+id/kevin_button"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <Button
-        android:id="@+id/lewis_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log Out"
-        app:layout_constraintTop_toBottomOf="@+id/tiffany_button"
-        tools:layout_editor_absoluteX="80dp" />
-
-    <Button
-        android:id="@+id/tiffany_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tiffany's Button"
-        app:layout_constraintTop_toBottomOf="@+id/sam_button"
-        tools:layout_editor_absoluteX="80dp" />
-
-
-    <Button
-        android:id="@+id/carter_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Carter's Button"
-        app:layout_constraintTop_toBottomOf="@+id/lewis_button"
-        tools:layout_editor_absoluteX="80dp" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <fragment
+            android:id="@+id/nav_host_fragment_container_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph_main"/>
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

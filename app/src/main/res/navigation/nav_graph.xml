@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/trackingFragment">
+
+    <fragment
+        android:id="@+id/trackingFragment"
+        android:name="com.android.gang.anabolix.fragments.TrackingFragment"
+        android:label="TrackingFragment" >
+        <deepLink app:uri="anabolix://com.android.gang.anabolix/tracking"/>
+    </fragment>
+</navigation>

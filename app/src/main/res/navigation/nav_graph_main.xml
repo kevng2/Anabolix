@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+    <action
+        android:id="@+id/action_global_nav_graph"
+        app:destination="@+id/runActivity"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/pedometerFragment"
+        android:name="com.android.gang.anabolix.fragments.PedometerFragment"
+        android:label="PedometerFragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.gang.anabolix.fragments.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/exerciseFragment"
+        android:name="com.android.gang.anabolix.fragments.ExerciseFragment"
+        android:label="exercise_fragment"
+        tools:layout="@layout/exercise_fragment" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.android.gang.anabolix.fragments.MoreFragment"
+        android:label="MoreFragment" />
+    <activity
+        android:id="@+id/runActivity"
+        android:name="com.android.gang.anabolix.ui.RunActivity"
+        android:label="activity_run"
+        tools:layout="@layout/activity_run" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="com.android.gang.anabolix.fragments.WeatherFragment"
+        android:label="WeatherFragment" />
+
+</navigation>

@@ -10,10 +10,9 @@
 
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
-
+        android:id="@+id/textView3"
         android:layout_above="@+id/CalorieDisplay"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
@@ -87,15 +86,19 @@
         android:textSize="32sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="492dp"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/textView3"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="6dp"
-        android:contentDescription="Cake"/>
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Cake"
+        app:srcCompat="@drawable/cake" />
 
     <TextView
         android:id="@+id/CalorieDisplay"

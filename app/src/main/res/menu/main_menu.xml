@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
-        android:title="@string/home"
+        android:id="@+id/homeFragment"
         android:icon="@drawable/ic_home_black_24dp"
-         />
+        android:title="@string/home" />
     <item
-        android:id="@+id/exercise"
-        android:title="@string/exercise"
+        android:id="@+id/exerciseFragment"
         android:icon="@drawable/ic_accessibility_black_24dp"
-        />
+        android:title="@string/exercise" />
     <item
-        android:id="@+id/weather"
-        android:title="@string/weather"
+        android:id="@+id/weatherFragment"
         android:icon="@drawable/ic_brightness_4_black_24dp"
-        />
+        android:title="@string/weather" />
     <item
-        android:id="@+id/stats"
-        android:title="@string/stats"
+        android:id="@+id/pedometerFragment"
         android:icon="@drawable/ic_pie_chart_black_24dp"
-        />
-    <item
-        android:id="@+id/timer"
-        android:title="@string/timer"
-        android:icon="@drawable/ic_hourglass_full_black_24dp"
-        />
+        android:title="@string/pedometer" />
 </menu>
