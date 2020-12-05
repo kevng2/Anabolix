@@ -61,11 +61,11 @@ public class AlarmActivity extends AppCompatActivity {
             long hoursinmillis = hour * 60 * 60 * 1000;
             long minuteinmillis = minute * 60 * 1000;
 
-            long setTime = currentTime - (hour + minute);
+            long setTime = (hour + minute);
 
 
             assert alarmManager != null;
-            alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10000L, pendingIntent);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, currentTime + setTime,24*60*60*1000, pendingIntent);
             Timber.d("Alarm set");
         });
     }
